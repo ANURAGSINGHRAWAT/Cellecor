@@ -1,0 +1,125 @@
+.pd-20 {
+    padding: 0px 20px;
+}
+
+.address_page {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.add_address {
+    border: 1px solid #DEE2E7;
+    padding: 22px 40px;
+    border-radius: 12px;
+}
+
+.add_address .btn {
+    background-color: transparent;
+    border-color: transparent;
+    color: orange;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.add_address .btn:active {
+    background-color: #DEE2E7 !important;
+    border-color: #fff !important;
+    color: orange !important;
+}
+
+.add_address .btn:hover {
+    background-color: #DEE2E7;
+    border-color: #fff;
+    color: orange;
+}
+
+.address {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #BDC4CD;
+    padding: 20px 20px;
+    border: 1px solid #DEE2E7;
+    border-radius: 12px;
+}
+
+.address .btn {
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #0067FF;
+    color: #fff;
+}
+
+.address .add_txt p {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.edit_link {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.edit:global(.btn) {
+    border: none;
+    color: #0067FF;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0;
+}
+
+.icon:global(.btn) {
+    border: none;
+    color: #127FFF;
+    font-size: 18px;
+    padding-bottom: 11px;
+}
+
+.btn_box {
+    display: flex;
+    gap: 10px;
+}
+
+.btn_box .cancle {
+    background-color: #fff;
+    color: #8B96A5;
+    border-color: #000;
+}
+
+.style.btnn {
+    padding: 24px 10px;
+}
+
+.form_page .icon {
+    border: none;
+    color: #127FFF;
+    font-size: 18px;
+    padding: 0px 0px 3px 0px;
+}
+
+.btnn .btn {
+    background-color: #0067FF !important;
+    color: #fff !important;
+}
+.check{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.input{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 400;
+}

@@ -1,0 +1,74 @@
+.profile_form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #DEE2E7;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.control:global(.form-control) {
+    padding: 10px 20px !important;
+}
+
+.persnol_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.persnol_info .txt {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.edit_link {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.edit:global(.btn) {
+    border: none;
+    color: #0067FF;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0;
+}
+
+.icon:global(.btn) {
+    border: none;
+    color: #127FFF;
+    font-size: 18px;
+    padding-bottom: 11px;
+}
+
+.profile_form .group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+.lab{
+    margin-top: 20px !important;
+}
+.check{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+.form-check .form-check-input:checked{
+    background-color: orange !important;
+    border-color: orange  !important;
+}
+.btn_box{
+    display: flex;
+    gap: 10px;
+}
+.btn_box .cancle{
+   background-color: #fff;
+   color: #8B96A5;
+   border-color: #000;
+}
