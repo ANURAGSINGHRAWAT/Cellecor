@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 import style from '../profile.components/address.module.css'
-import { LiaEditSolid } from "react-icons/lia";
+import { RiDeleteBinLine } from "react-icons/ri";
 import { Row } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -10,6 +11,8 @@ import Col from 'react-bootstrap/Col';
 
 
 export default function Address() {
+
+
   const [fname, setFname] = useState("");
   const [num, setNum] = useState("");
   const [altp, setAltp] = useState("");
@@ -26,6 +29,10 @@ export default function Address() {
   const handleClose = () => setShow(false);
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
+  const [hidebtn, setHideBtn] = useState(false)
+  const handleToggle = () => {
+    setHideBtn(!hidebtn)
+  }
   const [addressArr, setAddressArr] = useState([
     {
       id: "1",
@@ -38,7 +45,7 @@ export default function Address() {
       btn: "Home",
       loct: "rkPuram",
       altp: 9891924717,
-      icon: < LiaEditSolid />,
+      icon: < RiDeleteBinLine />,
       txt: "Edit",
 
     },
@@ -53,7 +60,7 @@ export default function Address() {
       btn: "Office",
       loct: "rkPuram",
       altp: 9891924717,
-      icon: < LiaEditSolid />,
+      icon: < RiDeleteBinLine />,
       txt: "Edit",
     },
   ]);
@@ -74,6 +81,7 @@ export default function Address() {
     setTxt(item.txt)
     setAddressId(item.id)
     setIsEdit(!isEdit)
+    handleClose()
 
 
   }
@@ -165,21 +173,66 @@ export default function Address() {
     setIcon("")
     setTxt("")
     setAddressId("")
+    handleClose()
+
 
   };
-
+  const removeMe = (index) => {
+    let temp = [...addressArr]
+    temp.splice(index, 1)
+    setAddressArr(temp)
+  }
 
   return (
     <>
-      <div className={style.address_page} >
-        {addressArr.length < 4 && (
-          <div className={style.add_address} >
-            <Button className={style.btn} onClick={() => setIsEdit(!isEdit)} >+ Add A New Address</Button>
-          </div>
-        )}
 
-        {
-          isEdit ? (
+      <div className={style.address_page} >
+      </div>
+      {!isEdit && addressArr.length < 4 && (
+        <div className={style.add_address} >
+          <Button className={style.btn} onClick={() => setIsEdit(!isEdit)} >+ Add A New Address</Button>
+        </div>
+      )}
+
+
+      {
+        !isEdit ? (
+          <>
+          
+              {
+
+                addressArr.map((el, index) => (
+                  <div className="address_add">
+                  <div className={style.address}>
+                    <div className={style.add_txt} key={index}>
+                      <p>Deliver to : {el.fname} </p>
+                      <p>{el.num} , {el.altp}</p>
+                      <p> {el.address} , {el.loct} ,{el.state} , {el.city} , </p>
+                      <p></p>
+                      <p> {el.pincode}</p>
+                    </div>
+
+                    <div className={style.edit_link}>
+                      <div className={style.btnn}>
+                        < p className={style.lable}>{el.btn}</p>
+                      </div>
+                      <div className={style.form_page}>
+                        <button className={`${style.edit} btn`} onClick={() => handelAddressEdit(el)}>Edit</button>
+                        <button className={`${style.icon} btn`} onClick={() => removeMe(index)}><RiDeleteBinLine /></button>
+                      </div>
+                    </div>
+
+                  </div>
+                  </div>
+                ))
+
+              }
+            
+          </>
+
+        ) : (
+          <>
+
             <Form onSubmit={handleSubmit} method="post">
               <Row className="mb-3">
                 <Form.Group as={Col} md="6" controlId="validationCustom01">
@@ -331,42 +384,19 @@ export default function Address() {
 
               <div className={style.btn_box}>
                 <Button className={style.save} type="submit"> Save</Button>
-                <Button className={style.cancle} type="cancle" onClick={handleClose}>Cancle</Button>
+                <Button className={style.cancle} type="cancel" onClick={() => setIsEdit(!isEdit)} >Cancel</Button>
               </div>
 
 
 
 
             </Form>
-          ) : (
-            <>
-              {addressArr.map((el, index) => (
-                <div className={style.address}>
-                  <div className={style.add_txt} key={index}>
-                    <p>Deliver to : {el.fname} </p>
-                    <p>{el.num} , {el.altp}</p>
-                    <p> {el.address} , {el.loct} ,{el.state} , {el.city} , </p>
-                    <p></p>
-                    <p> {el.pincode}</p>
-                  </div>
+          </>
+        )
+      }
 
-                  <div className={style.edit_link}>
-                    <div className={style.btnn}>
-                      < button className={`${style.btn} btn disabled`}>{el.btn}</button>
-                    </div>
-                    <div className={style.form_page}>
-                      <button className={`${style.edit} btn`} onClick={() => handelAddressEdit(el)}>Edit</button>
-                      <button className={`${style.icon} btn`} onClick={() => handelAddressEdit(el)}><LiaEditSolid /></button>
-                    </div>
-                  </div>
 
-                </div>
-              ))}
-            </>
-          )
-        }
-
-      </div>
     </>
+
   )
 }

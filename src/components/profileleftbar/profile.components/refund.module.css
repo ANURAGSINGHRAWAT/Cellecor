@@ -1,0 +1,139 @@
+.head_txt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 12px;
+}
+
+.fillter {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #DADADA;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.fillter:focus-visible{
+    outline: transparent !important;
+    
+}
+
+.stepper .StepperContainer-0-2-1 {
+    padding: 0;
+    width: 632px;
+    height: 4px;
+}
+
+.status_step {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.status_step .txt {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prosess_barr {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+
+.step p {
+    margin: 0;
+    padding: 0;
+}
+
+.stepper .txt1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 480px;
+    color: 219653;
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+.stepper .txt2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 155px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.step .return {
+    height: 15px;
+    width: 15px;
+    border: 1px solid #219653;
+
+    border-radius: 50%;
+    background-color: #219653;
+
+}
+
+.step .conect {
+    width: 500px;
+    border: 1px solid #219653;
+    background-color: #219653;
+}
+
+.step .done {
+    height: 15px;
+    width: 15px;
+    border: 1px solid #219653;
+    border-radius: 50%;
+    background-color: #219653;
+}
+
+.user_address .add_txt p {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+
+.pending {
+    color: #FF6900;
+    background: rgba(255, 105, 0, 0.10);
+}
+
+.complete {
+    color: #219653;
+    background-color: rgba(66, 255, 0, 0.10);
+}
+
+.status p {
+    margin: 0;
+    padding: 0px 10px;
+}
+
+.tran_id {
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.tran_id span {
+    color: #0067FF;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.refunf_amt {
+    margin-top: 20px;
+}

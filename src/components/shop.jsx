@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -16,63 +16,86 @@ import Proimg5 from "../assets/image/proimg5.png";
 
 
 export default function Shop() {
+  const [name, setName] = useState("Short by")
+  const [cutprice, setCutprice] = useState("Short by")
 
   const [product, setProduct] = useState([
     {
       image: Proimg1,
-      name: "Wireless Neckband with 25 Hrs",
+      name: "Sound Bar",
       mainprice: '200',
       cutprice: '300',
     },
     {
       image: Proimg2,
-      name: "Wireless Neckband with 25 Hrs",
+      name: "TWS",
       mainprice: '200',
       cutprice: '300',
     },
     {
       image: Proimg3,
-      name: "Wireless Neckband with 25 Hrs",
+      name: "Power Bank",
       mainprice: '200',
       cutprice: '300',
     },
     {
       image: Proimg4,
-      name: "Wireless Neckband with 25 Hrs",
+      name: "TWS",
       mainprice: '200',
       cutprice: '300',
     },
     {
       image: Proimg1,
-      name: "Wireless Neckband with 25 Hrs",
+      name: "Sound Bar",
       mainprice: '200',
-      cutprice: '300',
+      cutprice: '500',
     },
     {
       image: Proimg3,
-      name: "Wireless Neckband with 25 Hrs",
-      mainprice: '200',
-      cutprice: '300',
+      name: "Power Bank",
+      mainprice: '300',
+      cutprice: '500',
     },
     {
       image: Proimg5,
-      name: "Wireless Neckband with 25 Hrs",
-      mainprice: '200',
-      cutprice: '300',
+      name: "TWS",
+      mainprice: '300',
+      cutprice: '500',
     },
     {
       image: Proimg3,
-      name: "Wireless Neckband with 25 Hrs",
+      name: "Power Bank",
       mainprice: '200',
       cutprice: '300',
     },
     {
       image: Proimg1,
-      name: "Wireless Neckband with 25 Hrs",
+      name: "Sound Bar",
       mainprice: '200',
       cutprice: '300',
     },
   ])
+  useEffect(() => {
+    if (name != 'Short by') {
+      let tempArr = product.filter((el) => el.name == name);
+      setOrderArr(tempArr)
+    } else {
+      setOrderArr(product)
+
+    }
+
+  }, [name])
+  useEffect(() => {
+    if (cutprice != 'Short by') {
+      let tempArr = product.filter((el) => el.cutprice == cutprice);
+      setOrderArr(tempArr)
+    } else {
+      setOrderArr(product)
+
+    }
+
+  }, [cutprice])
+  const [orderArr, setOrderArr] = useState(product)
 
   const cateslider = {
     300: {
@@ -104,6 +127,8 @@ export default function Shop() {
       slidesPerView: 5
     },
   }
+
+
   return (
     <>
 
@@ -234,45 +259,21 @@ export default function Shop() {
                 <div className="title-text">
                   <h4>20 Products</h4>
                 </div>
-                <div className="filter-list">
-                  <div className="price-list">
-                    <span>Filter :</span>
-                    <NavDropdown id="nav-dropdown" title="Avlabilty">
-                      <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Another action
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown id="nav-dropdown" title="Price">
-                      <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Another action
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </div>
-                  <div className="short">
-                    <span>Shortby :</span>
-                    <NavDropdown id="nav-dropdown" title="Avlabilty">
-                      <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Another action
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                      </NavDropdown.Item>
-                    </NavDropdown>
+                <div className="filtter">
+                  <div className="filtter1">
+                    <h4>Filter:</h4>
+                    <select className="fillter" value={name} onChange={(el) => setName(el.target.value)}>
+                      <option value="Short by">Product</option>
+                      <option value="TWS">TWS</option>
+                      <option value="Sound Bar">Sound Bar</option>
+                      <option value="Power Bank">Power Bank</option>
+                    </select>
+
+                    <select className="fillter" value={cutprice} onChange={(el) => setCutprice(el.target.value)}>
+                      <option value="Short by">cutprice</option>
+                      <option value="300">300</option>
+                      <option value="500">500</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -285,7 +286,7 @@ export default function Shop() {
         <div className="container">
           <div className="row">
             {
-              product.map((el, index) => {
+              orderArr.map((el, index) => {
                 return (
                   <div className="col-lg-4 col-md-4 col-sm-12 pt-30" key={index}>
 
@@ -466,60 +467,60 @@ export default function Shop() {
           </div>
           <div className="row pt-20 ">
             <div className="col-lg-9 col-md-9 col-sm-12">
-                <Accordion defaultActiveKey="0" >
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>Payment for the order has been deducted from my account, but no order details have been received?</Accordion.Header>
-                      <Accordion.Body>
-                         You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1">
-                      <Accordion.Header>What payment options do you have?</Accordion.Header>
-                      <Accordion.Body>
-                         You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="2">
-                      <Accordion.Header>What payment options do you have?</Accordion.Header>
-                      <Accordion.Body>
-                         You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
-                      </Accordion.Body>
-                    </Accordion.Item>
-                     <Accordion.Item eventKey="3">
-                      <Accordion.Header>What types of furniture can you offer?</Accordion.Header>
-                      <Accordion.Body>
-                         You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="4">
-                      <Accordion.Header>Do you offer a free initial consultation?</Accordion.Header>
-                      <Accordion.Body>
-                         You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="5">
-                      <Accordion.Header>Where can I get more information on the interiors?</Accordion.Header>
-                      <Accordion.Body>
-                         You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="6">
-                      <Accordion.Header>How can you design small spaces?</Accordion.Header>
-                      <Accordion.Body>
-                         You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="7">
-                      <Accordion.Header>Do you offer a free initial consultation?</Accordion.Header>
-                      <Accordion.Body>
-                         You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
+              <Accordion defaultActiveKey="0" >
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Payment for the order has been deducted from my account, but no order details have been received?</Accordion.Header>
+                  <Accordion.Body>
+                    You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>What payment options do you have?</Accordion.Header>
+                  <Accordion.Body>
+                    You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                  <Accordion.Header>What payment options do you have?</Accordion.Header>
+                  <Accordion.Body>
+                    You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                  <Accordion.Header>What types of furniture can you offer?</Accordion.Header>
+                  <Accordion.Body>
+                    You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4">
+                  <Accordion.Header>Do you offer a free initial consultation?</Accordion.Header>
+                  <Accordion.Body>
+                    You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="5">
+                  <Accordion.Header>Where can I get more information on the interiors?</Accordion.Header>
+                  <Accordion.Body>
+                    You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="6">
+                  <Accordion.Header>How can you design small spaces?</Accordion.Header>
+                  <Accordion.Body>
+                    You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="7">
+                  <Accordion.Header>Do you offer a free initial consultation?</Accordion.Header>
+                  <Accordion.Body>
+                    You order details may have not been captured with us. The amount will be refunded to your account in next 5-7 days
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </div>
             <div className="col-lg-3 col-md-3 col-sm-12">
               <div className="faq-img">
-              <img src={images.shopimage3} alt="" />
+                <img src={images.shopimage3} alt="" />
               </div>
             </div>
           </div>

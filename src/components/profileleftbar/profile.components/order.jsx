@@ -30,7 +30,7 @@ export default function Order() {
             text5: "Your item has been delivered",
         },
         {
-            img: order1,
+            img: order2,
             text1: "Cellecor CLB21 20 W Bluetooth Soundbar (Black,2.2 Channel)",
             text2: "Color : Black",
             text3: "Size : Stander",
@@ -41,7 +41,7 @@ export default function Order() {
             text5: "You requested a cancellation because you changed your mind about this product.",
         },
         {
-            img: order1,
+            img: order3,
             text1: "Cellecor CLB21 20 W Bluetooth Soundbar (Black,2.2 Channel)",
             text2: "Color : Black",
             text3: "Size : Stander",
@@ -52,7 +52,18 @@ export default function Order() {
             text5: "Your item has been delivered",
         },
         {
-            img: order1,
+            img: order4,
+            text1: "Cellecor CLB21 20 W Bluetooth Soundbar (Black,2.2 Channel)",
+            text2: "Color : Black",
+            text3: "Size : Stander",
+            price: "$2,184.00",
+            code: "green",
+             status:"Delivered",
+            text4: " on march 12",
+            text5: "Your item has been delivered",
+        },
+        {
+            img: order5,
             text1: "Cellecor CLB21 20 W Bluetooth Soundbar (Black,2.2 Channel)",
             text2: "Color : Black",
             text3: "Size : Stander",

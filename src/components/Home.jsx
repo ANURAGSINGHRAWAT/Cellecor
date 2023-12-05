@@ -10,6 +10,9 @@
 
       export default function Home() {
 
+
+    
+
       const cateslider ={
         300: {
           slidesPerView: 1.5

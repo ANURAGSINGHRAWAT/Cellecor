@@ -67,7 +67,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    
+
 }
 
 .main_profile .profile_list li a {
@@ -99,12 +99,26 @@
     font-weight: 600;
 }
 
-.profile_list .list .active {
-    background-color: #FF6900;
+.return {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
 }
-.profile_list .list li svg{
-    height: 22px;
+
+.refund {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.profile_list .list li svg {
+    height: 25px;
     width: 25px;
+    background-color: #EFF2F4;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 2px;
+
 }
 
 .profile_list .list li {
@@ -116,4 +130,26 @@
     font-size: 18px;
     font-weight: 400;
     cursor: pointer;
+    padding: 0px 12px;
+}
+
+.profile_list .list li p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.active {
+    color: #FF6900;
+    stroke: #FF6900;
+    background: rgba(255, 105, 0, 0.10);
+    border-right: 3px solid #FF6900;
+    border-radius: 6px;
+}
+
+.active svg {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: #FFF;
+    background-color: #FF6900 !important;
 }

@@ -67,6 +67,23 @@
     gap: 10px;
 }
 
+.edit_link .btnn .lable {
+    color: #fff;
+    background-color: #127FFF;
+    margin: 0;
+    display: flex;
+    height: 44px;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.form_page {
+    display: flex;
+    gap: 10px;
+}
+
 .edit:global(.btn) {
     border: none;
     color: #0067FF;
@@ -108,13 +125,15 @@
     background-color: #0067FF !important;
     color: #fff !important;
 }
-.check{
+
+.check {
     display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: center;
 }
-.input{
+
+.input {
     display: flex;
     flex-direction: row;
     gap: 8px;

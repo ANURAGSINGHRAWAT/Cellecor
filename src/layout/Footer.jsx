@@ -13,7 +13,7 @@ import { images } from "../components/utility/Images";
 export default function Footer() {
     return (
     <>
-        <div className="footer pt-20">
+        <div className="footer">
            <div className="footer-head">
                 <div className="container">
                     <div className="row">
